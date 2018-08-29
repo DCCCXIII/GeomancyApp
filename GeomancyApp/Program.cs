@@ -10,20 +10,30 @@ namespace GeomancyApp
     class Program
     {
         static readonly Random rng = new Random();
+
         static void Main(string[] args)
-        {Figure newFigure = new Figure();
+        {
+            Chart newChart = new Chart();
 
-            newFigure.SetRandomFigureValues(rng);
+            newChart.SetRandomChartValues(rng);
 
-            Console.WriteLine(newFigure.HeadValue);
-            Console.WriteLine(newFigure.NeckValue);
-            Console.WriteLine(newFigure.LegsValue);
-            Console.WriteLine(newFigure.FeetValue);
-
+            newChart.MotherFirst.RenderFigure();
+            Console.WriteLine();
+            newChart.MotherSecond.RenderFigure();
+            Console.WriteLine();
+            newChart.MotherThird.RenderFigure();
+            Console.WriteLine();
+            newChart.MotherFourth.RenderFigure();
             Console.WriteLine();
 
-            newFigure.RenderFigure();
-
+            Console.WriteLine();
+            newChart.DaughterFirst.RenderFigure();
+            Console.WriteLine();
+            newChart.DaughterSecond.RenderFigure();
+            Console.WriteLine();
+            newChart.DaughterThird.RenderFigure();
+            Console.WriteLine();
+            newChart.DaughterFourth.RenderFigure();
             Console.WriteLine();
 
             Console.ReadKey();
