@@ -90,6 +90,16 @@ namespace GeomancyApp.Classes
             RenderNieceLine(Figure.FigurePart.Neck);
             RenderNieceLine(Figure.FigurePart.Legs);
             RenderNieceLine(Figure.FigurePart.Feet);
+            Console.WriteLine("--------------------------------------------------------------");
+            RenderWitnessLine(Figure.FigurePart.Head);
+            RenderWitnessLine(Figure.FigurePart.Neck);
+            RenderWitnessLine(Figure.FigurePart.Legs);
+            RenderWitnessLine(Figure.FigurePart.Feet);
+            Console.WriteLine("--------------------------------------------------------------");
+            RenderJudgeLine(Figure.FigurePart.Head);
+            RenderJudgeLine(Figure.FigurePart.Neck);
+            RenderJudgeLine(Figure.FigurePart.Legs);
+            RenderJudgeLine(Figure.FigurePart.Feet);
         }
 
         public void RenderMothersDaughtersLine (Figure.FigurePart figurePart)
@@ -122,6 +132,22 @@ namespace GeomancyApp.Classes
             NieceSecond.RenderPart(figurePart);
             Console.Write("     |     ");
             NieceFirst.RenderPart(figurePart);
+            Console.WriteLine();
+        }
+
+        public void RenderWitnessLine(Figure.FigurePart figurePart)
+        {
+            Console.Write("            ");
+            LeftWitness.RenderPart(figurePart);
+            Console.Write("             |             ");
+            RightWitness.RenderPart(figurePart);
+            Console.WriteLine();
+        }
+
+        public void RenderJudgeLine(Figure.FigurePart figurePart)
+        {
+            Console.Write("                            ");
+            Judge.RenderPart(figurePart);
             Console.WriteLine();
         }
     }

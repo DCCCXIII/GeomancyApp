@@ -16,8 +16,21 @@ namespace GeomancyApp
             Chart newChart = new Chart();
 
             newChart.SetRandomChartValues(rng);
-
             newChart.RenderShieldChart();
+
+            Console.WriteLine();
+            Console.WriteLine("Press ENTER to generate a new chart.");
+
+            while (Console.ReadKey().Key == ConsoleKey.Enter)
+            {
+                Console.Clear();
+                newChart.SetRandomChartValues(rng);
+
+                newChart.RenderShieldChart();
+
+                Console.WriteLine();
+                Console.WriteLine("Press ENTER to generate a new chart.");
+            }
             Console.WriteLine();
 
             Console.ReadKey();
