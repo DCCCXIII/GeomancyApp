@@ -17,23 +17,7 @@ namespace GeomancyApp
 
             newChart.SetRandomChartValues(rng);
 
-            newChart.MotherFirst.RenderFigure();
-            Console.WriteLine();
-            newChart.MotherSecond.RenderFigure();
-            Console.WriteLine();
-            newChart.MotherThird.RenderFigure();
-            Console.WriteLine();
-            newChart.MotherFourth.RenderFigure();
-            Console.WriteLine();
-
-            Console.WriteLine();
-            newChart.DaughterFirst.RenderFigure();
-            Console.WriteLine();
-            newChart.DaughterSecond.RenderFigure();
-            Console.WriteLine();
-            newChart.DaughterThird.RenderFigure();
-            Console.WriteLine();
-            newChart.DaughterFourth.RenderFigure();
+            newChart.RenderShieldChart();
             Console.WriteLine();
 
             Console.ReadKey();

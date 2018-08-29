@@ -78,5 +78,51 @@ namespace GeomancyApp.Classes
 
             return new Figure(head, neck, legs, feet);
         }
+
+        public void RenderShieldChart()
+        {
+            RenderMothersDaughtersLine(Figure.FigurePart.Head);
+            RenderMothersDaughtersLine(Figure.FigurePart.Neck);
+            RenderMothersDaughtersLine(Figure.FigurePart.Legs);
+            RenderMothersDaughtersLine(Figure.FigurePart.Feet);
+            Console.WriteLine("--------------------------------------------------------------");
+            RenderNieceLine(Figure.FigurePart.Head);
+            RenderNieceLine(Figure.FigurePart.Neck);
+            RenderNieceLine(Figure.FigurePart.Legs);
+            RenderNieceLine(Figure.FigurePart.Feet);
+        }
+
+        public void RenderMothersDaughtersLine (Figure.FigurePart figurePart)
+        {
+            DaughterFourth.RenderPart(figurePart);
+            Console.Write(" | ");
+            DaughterThird.RenderPart(figurePart);
+            Console.Write(" | ");
+            DaughterSecond.RenderPart(figurePart);
+            Console.Write(" | ");
+            DaughterFirst.RenderPart(figurePart);
+            Console.Write(" | ");
+            MotherFourth.RenderPart(figurePart);
+            Console.Write(" | ");
+            MotherThird.RenderPart(figurePart);
+            Console.Write(" | ");
+            MotherSecond.RenderPart(figurePart);
+            Console.Write(" | ");
+            MotherFirst.RenderPart(figurePart);
+            Console.WriteLine();
+        }
+
+        public void RenderNieceLine(Figure.FigurePart figurePart)
+        {
+            Console.Write("    ");
+            NieceFourth.RenderPart(figurePart);
+            Console.Write("     |     ");
+            NieceThird.RenderPart(figurePart);
+            Console.Write("     |     ");
+            NieceSecond.RenderPart(figurePart);
+            Console.Write("     |     ");
+            NieceFirst.RenderPart(figurePart);
+            Console.WriteLine();
+        }
     }
 }
