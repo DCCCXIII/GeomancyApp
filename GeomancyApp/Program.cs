@@ -13,10 +13,12 @@ namespace GeomancyApp
 
         static void Main(string[] args)
         {
-            Chart newChart = new Chart();
+            Chart chart = new Chart();
 
-            newChart.SetRandomChartValues(rng);
-            newChart.RenderShieldChart();
+            chart.SetRandomChartValues(rng);
+            chart.RenderShieldChart();
+            Console.WriteLine();
+            chart.RenderTwelveHousesChart();
 
             Console.WriteLine();
             Console.WriteLine("Press ENTER to generate a new chart.");
@@ -24,10 +26,11 @@ namespace GeomancyApp
             while (Console.ReadKey().Key == ConsoleKey.Enter)
             {
                 Console.Clear();
-                newChart.SetRandomChartValues(rng);
+                chart.SetRandomChartValues(rng);
 
-                newChart.RenderShieldChart();
-
+                chart.RenderShieldChart();
+                Console.WriteLine();
+                chart.RenderTwelveHousesChart();
                 Console.WriteLine();
                 Console.WriteLine("Press ENTER to generate a new chart.");
             }

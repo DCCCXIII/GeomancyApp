@@ -40,10 +40,15 @@ namespace GeomancyApp.Classes
         public Figure NieceThird { get { return SumFigures(DaughterFirst, DaughterSecond); } }
         public Figure NieceFourth { get { return SumFigures(DaughterThird, DaughterFourth); } }
 
-        public Figure RightWitness { get {return SumFigures(NieceFirst, NieceSecond); } }
-        public Figure LeftWitness { get { return SumFigures(NieceThird, NieceFourth); } }
+        public Figure WitnessRight { get {return SumFigures(NieceFirst, NieceSecond); } }
+        public Figure WitnessLeft { get { return SumFigures(NieceThird, NieceFourth); } }
 
-        public Figure Judge { get { return SumFigures(RightWitness, LeftWitness); } }
+        public Figure Judge { get { return SumFigures(WitnessRight, WitnessLeft); } }
+
+        private readonly Figure.FigurePart head = Figure.FigurePart.Head;
+        private readonly Figure.FigurePart neck = Figure.FigurePart.Neck;
+        private readonly Figure.FigurePart legs = Figure.FigurePart.Legs;
+        private readonly Figure.FigurePart feet = Figure.FigurePart.Feet;
 
         public Chart(Figure firstMother, Figure secondMother, Figure thirdMother, Figure fourthMother)
         {
@@ -79,27 +84,29 @@ namespace GeomancyApp.Classes
             return new Figure(head, neck, legs, feet);
         }
 
+
+        #region Shield Chart
         public void RenderShieldChart()
         {
-            RenderMothersDaughtersLine(Figure.FigurePart.Head);
-            RenderMothersDaughtersLine(Figure.FigurePart.Neck);
-            RenderMothersDaughtersLine(Figure.FigurePart.Legs);
-            RenderMothersDaughtersLine(Figure.FigurePart.Feet);
+            RenderMothersDaughtersLine(head);
+            RenderMothersDaughtersLine(neck);
+            RenderMothersDaughtersLine(legs);
+            RenderMothersDaughtersLine(feet);
             Console.WriteLine("--------------------------------------------------------------");
-            RenderNieceLine(Figure.FigurePart.Head);
-            RenderNieceLine(Figure.FigurePart.Neck);
-            RenderNieceLine(Figure.FigurePart.Legs);
-            RenderNieceLine(Figure.FigurePart.Feet);
+            RenderNieceLine(head);
+            RenderNieceLine(neck);
+            RenderNieceLine(legs);
+            RenderNieceLine(feet);
             Console.WriteLine("--------------------------------------------------------------");
-            RenderWitnessLine(Figure.FigurePart.Head);
-            RenderWitnessLine(Figure.FigurePart.Neck);
-            RenderWitnessLine(Figure.FigurePart.Legs);
-            RenderWitnessLine(Figure.FigurePart.Feet);
+            RenderWitnessLine(head);
+            RenderWitnessLine(neck);
+            RenderWitnessLine(legs);
+            RenderWitnessLine(feet);
             Console.WriteLine("--------------------------------------------------------------");
-            RenderJudgeLine(Figure.FigurePart.Head);
-            RenderJudgeLine(Figure.FigurePart.Neck);
-            RenderJudgeLine(Figure.FigurePart.Legs);
-            RenderJudgeLine(Figure.FigurePart.Feet);
+            RenderJudgeLine(head);
+            RenderJudgeLine(neck);
+            RenderJudgeLine(legs);
+            RenderJudgeLine(feet);
         }
 
         public void RenderMothersDaughtersLine (Figure.FigurePart figurePart)
@@ -138,9 +145,9 @@ namespace GeomancyApp.Classes
         public void RenderWitnessLine(Figure.FigurePart figurePart)
         {
             Console.Write("            ");
-            LeftWitness.RenderPart(figurePart);
+            WitnessLeft.RenderPart(figurePart);
             Console.Write("             |             ");
-            RightWitness.RenderPart(figurePart);
+            WitnessRight.RenderPart(figurePart);
             Console.WriteLine();
         }
 
@@ -150,5 +157,55 @@ namespace GeomancyApp.Classes
             Judge.RenderPart(figurePart);
             Console.WriteLine();
         }
+        #endregion
+
+        #region Twelve Houses Chart
+        public void RenderTwelveHousesChart()
+        {
+            Console.WriteLine("#####################################");                                                                 //1
+            Console.WriteLine("##               # #               ##");                                                                 //2
+            Console.WriteLine("# #    " + NieceThird.PartString(head) + "    #   #    " + NieceFirst.PartString(head) + "    # #");     //3
+            Console.WriteLine("#  #   " + NieceThird.PartString(neck) + "   #     #   " + NieceFirst.PartString(neck) + "   #  #");     //4
+            Console.WriteLine("#   #  " + NieceThird.PartString(legs) + "  # " + NieceSecond.PartString(head) + " #  " +
+                                NieceFirst.PartString(legs) + "  #   #");                                                               //5
+            Console.WriteLine("#    # " + NieceThird.PartString(feet) + " #  " + NieceSecond.PartString(neck) + "  # " +
+                                NieceFirst.PartString(feet) + " #    #");                                                               //6
+            Console.WriteLine("#     #     #   " + NieceSecond.PartString(legs) + "   #     #     #");                                  //7
+            Console.WriteLine("#      #   #    " + NieceSecond.PartString(feet) + "    #   #      #");                                  //8
+            Console.WriteLine("#" + NieceFourth.PartString(head) + "  # #               # #  " + 
+                                DaughterFourth.PartString(head) + "#");                                                                 //9
+            Console.WriteLine("#" + NieceFourth.PartString(neck) + "   ###################   " + 
+                                DaughterFourth.PartString(neck) + "#");                                                                 //10
+            Console.WriteLine("#" + NieceFourth.PartString(legs) + "  ##                 ##  " + 
+                                DaughterFourth.PartString(legs) + "#");                                                                 //11
+            Console.WriteLine("#" + NieceFourth.PartString(feet) + " # #                 # # " + 
+                                DaughterFourth.PartString(feet) + "#");                                                                 //12
+            Console.WriteLine("#     #  #                 #  #     #");                                                                 //13
+            Console.WriteLine("#    #   #                 #   #    #");                                                                 //14
+            Console.WriteLine("#   #    #                 #    #   #");                                                                 //15
+            Console.WriteLine("#  #     #                 #     #  #");                                                                 //16
+            Console.WriteLine("# # " + MotherFirst.PartString(head) + "#                 #      # #");                                                                 //17
+            Console.WriteLine("##  " + MotherFirst.PartString(neck) + "#                 #       ##");                                                                 //18
+            Console.WriteLine("#   " + MotherFirst.PartString(legs) + "#                 #        #");                                                                 //19
+            Console.WriteLine("##  " + MotherFirst.PartString(feet) + "#                 #       ##");                                                                 //20
+            Console.WriteLine("# #      #                 #      # #");                                                                 //21
+            Console.WriteLine("#  #     #                 #     #  #");                                                                 //22
+            Console.WriteLine("#   #    #                 #    #   #");                                                                 //23
+            Console.WriteLine("#    #   #                 #   #    #");                                                                 //24
+            Console.WriteLine("#     #  #                 #  #     #");                                                                 //25
+            Console.WriteLine("#      # #                 # #      #");                                                                 //26
+            Console.WriteLine("#       ##                 ##       #");                                                                 //27
+            Console.WriteLine("#        ###################        #");                                                                 //28
+            Console.WriteLine("#       # #               # #       #");                                                                 //29
+            Console.WriteLine("#      #   #             #   #      #");                                                                 //30
+            Console.WriteLine("#     #     #           #     #     #");                                                                 //31
+            Console.WriteLine("#    #       #         #       #    #");                                                                 //32
+            Console.WriteLine("#   #         #       #         #   #");                                                                 //33
+            Console.WriteLine("#  #           #     #           #  #");                                                                 //34
+            Console.WriteLine("# #             #   #             # #");                                                                 //35
+            Console.WriteLine("##               # #               ##");                                                                 //36
+            Console.WriteLine("#####################################");                                                                 //37
+        }
+        #endregion
     }
 }

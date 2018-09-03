@@ -79,6 +79,45 @@ namespace GeomancyApp.Classes
             }
         }
 
+        public string PartString(FigurePart part)
+        {
+            string s = "empty";
+
+            int partValue = 2;
+
+            if (part == FigurePart.Head)
+            {
+                partValue = this.HeadValue;
+            }
+            else if (part == FigurePart.Neck)
+            {
+                partValue = this.NeckValue;
+            }
+            else if (part == FigurePart.Legs)
+            {
+                partValue = this.LegsValue;
+            }
+            else if (part == FigurePart.Feet)
+            {
+                partValue = this.FeetValue;
+            }
+
+            if (partValue == 1)
+            {
+                s =  "  0  ";
+            }
+            else if (partValue == 0)
+            {
+                s= "0   0";
+            }
+            else
+            {
+                s = "error";
+            }
+
+            return s;
+        }
+
         public enum FigurePart {
             Head,
             Neck,
