@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeomancyApp.Classes
+namespace GeomancyApp.Figures
 {
     class Figure
     {
