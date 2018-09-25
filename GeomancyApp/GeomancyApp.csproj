@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="Classes\Chart.cs" />
     <Compile Include="Classes\Figure.cs" />
+    <Compile Include="Classes\Shield.cs" />
+    <Compile Include="Classes\TwelveHouses.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
